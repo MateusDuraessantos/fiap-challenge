@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+body {
+  margin: 0;
+  background: #F9F9F9;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+}
+
+:root {
+  --orange: #DC4405;
+  --orange__light: #ff7337;
+  --black: #383838;
+}
+
+button {
+  border: none;
+}
+
+.button__orange:hover {
+  transition: .2s;
+  background-color: var(--orange__light);
+}
+
+.row {
+  display: flex;
+}
+
+
+/* OPTIONS */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: auto;
+  width: 100%;
+}
+
+/* SEARCH */
+.search {
+  background: white;
+  padding: 40px;
+  margin: auto;
+}
+
+.search__container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.search__text {
+  height: 40px;
+  width: 100%;
+  padding: 0 30px;
+  border-radius: 50px 0 50px 50px;
+  background: #F3F3F3;
+  border: none;
+}
+
+.search__text::placeholder {
+  color: #383838;
+  font-size: 16px;
+}
+
+
+
+/* HEADER */
+.header__fixed {
+  background: var(--orange);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 80px);
+  gap: 22px;
+  margin: auto;
+  font-weight: 600;
+  text-align: center;
+}
+
+header * {
+  color: black;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+/* QUALIDADE */
+
+.qualidade {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  width: calc(100% - 40px);
+  margin: auto;
+  margin-top: 100px;
+}
+
+.qualidade__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 0 30px 30px 30px;
+  overflow: hidden;
+  background: white;
+}
+
+.qualidade__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.button__orange {
+  display: flex;
+  align-items: center;
+  background: var(--orange);
+  height: 36px;
+  color: white;
+  font-size: 20px;
+  border-radius: 20px 20px 0 20px;
+  padding: 0 20px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.qualidade__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px; 
+  background: white;
+}
+
+.qualidade__btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qualidade__adicionar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qualidade__btns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F3F3F3;
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  padding-bottom: 6px;
+}
+
+.qualidade__preco {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--black);
+}
+
+
+/* FOOTER */
+footer {
+
+}
+
+.footer__redes {
+  display: flex;
+  background: var(--black);
+  color: white;
+  height: 12r540px;
+}
+
+.footer__rodape {
+  background: #707070;
+  height: 40px;
+}
+
+</style>
+<body>
+  
+  <div class="header__fixed">
+    <p> São Paulo - SP.Preços válidos somente para essa Região.</p>
+  </div>
+
+  <header>
+    <a href="#">Prontos para comer</a>
+    <a href="#">Bovinos</a>
+    <a href="#">AVES</a>
+    <a href="#">PESCADOS</a>
+    <a href="#">SUÍNOS</a>
+    <a href="#">LINGUIÇAS</a>
+    <a href="#">CHURRASCO</a>
+    <a href="#">CORTES ESPECIAIS</a>
+    <a href="#">FRUTAS E VEGETAIS</a>
+    <a href="#">100% VEGETAL</a>
+    <a href="#">SNACKS</a>
+    <a href="#">MERCEARIA</a>
+    <a href="#">PADARIA</a>
+  </header>
+
+  <main>
+
+    <!-- OPTIONS -->
+    <section class="options">
+      <img src="./assets/kit_swift.png" class="options__cards" />
+      <img src="./assets/novidades_swift.png" class="options__cards" />
+      <img src="./assets/receita_swift.png" class="options__cards" />
+      <img src="./assets/alerta_swift.png" class="options__cards" />
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search">
+      <div class="search__container">
+        <img src="" alt="">
+        <input class="search__text" type="text" placeholder="Procure por proteínas, cortes, etc...">
+      </div>
+    </section>
+
+    
+    <!-- QUALIDADE -->
+    <section class="qualidade" id="qualidade">
+      <div class="qualidade__card"  id="card">
+        <img class="qualidade__img" src="./assets/meet.webp" alt="">
+        
+        <div class="qualidade__text">
+          <p>carne de panela em cubos swift 500g</p>
+          <p>preço</p>
+          <p class="qualidade__preco">r$ 20,90</p>
+          <div class="qualidade__adicionar row">
+            <div class="qualidade__btns">
+              
+              <button>-</button>
+              <p>1</p>
+              <button>+</button>
+            </div>
+            <button class="button__orange">adicionar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer__redes"></div>
+    <div class="footer__rodape">
+      
+    </div>
+  </footer>
+
+
+</body>
+
+
+<script>
+const card = document.getElementById('card')
+const qualidade = document.getElementById('qualidade')
+
+for (let i = 0; i < 4; i++) {
+  const clone = card.cloneNode(true);
+  qualidade.appendChild(clone);
+}
+
+</script>
+</html>
