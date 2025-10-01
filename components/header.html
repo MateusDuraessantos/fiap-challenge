@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<style>
+
+body {
+  height: max-content;
+  background: white;
+}
+
+/* HEADER */
+.header__fixed {
+  background: var(--orange);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+}
+
+/* SEARCH */
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: white;
+  padding: 40px;
+  margin: auto;
+}
+
+.search__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.search__text {
+  height: 40px;
+  width: 100%;
+  padding: 0 30px;
+  border-radius: 50px 0 50px 50px;
+  background: #F3F3F3;
+  border: none;
+}
+
+.search__text::placeholder {
+  color: #383838;
+  font-size: 16px;
+}
+
+.search__logo {
+  width: 100px;
+}
+
+.search__input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.search__icon--search {
+  position: absolute;
+  right: 20px;
+  height: 26px;
+}
+
+.search__icon--user {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.search__bem {
+  font-weight: 700;
+  color: var(--black);
+  text-wrap: nowrap;
+}
+
+.search__user {
+  display: flex; 
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+</style>
+
+<body>
+  
+  <!-- FIXED -->
+  <div class="header__fixed">
+    <p> São Paulo - SP.Preços válidos somente para essa Região.</p>
+  </div>
+
+  <!-- SEARCH -->
+  <section class="search">
+    <div class="search__container">
+      <img class="search__logo" src="../assets/logo_swift.svg" alt="">
+
+      <div class="search__input">
+        <input class="search__text" type="text" placeholder="Procure por proteínas, cortes, etc..." />
+        <img class="search__icon--search" height="26" width="26" src="../assets/icons/search.svg" alt="">
+      </div>
+      
+      <div class="search__user">
+        <img class="search__icon--user" height="26" width="26" src="../assets//icons/user.png" alt="">
+        <p class="search__bem">Bem vindo, <br> acesse aqui seu perfil</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
