@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swift - Início</title>
+<title>Swift</title>
 
 <link rel="stylesheet" href="../global.css">
 
@@ -30,6 +30,10 @@
 
 /*  */
 
+.home__titulo {
+  margin-top: 140px;
+}
+
 h1 {
   margin: auto;
   text-align: center;
@@ -44,17 +48,7 @@ h3 {
   margin: 0;
 }
 
-/* OPTIONS */
-.options {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 60px auto;
-  width: 100%;
-}
-
-/* menu */
-
+/*  */
 .menu {
   display: flex;
   align-items: center;
@@ -64,7 +58,7 @@ h3 {
   font-weight: 600;
   text-align: center;
   background: white;
-  padding-bottom: 20px;
+  padding: 20px 0;
 }
 
 .menu * {
@@ -73,103 +67,35 @@ h3 {
   font-size: 12px;
   margin: 10px 0;
 }
-/* QUALIDADE */
+
+/* OPTIONS */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 60px auto;
+  width: 100%;
+}
 
 .qualidade {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 30px;
-  margin: auto;
-  margin-top: 100px;
+  margin-top: 0;
 }
 
-.qualidade__card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 0 30px 30px 30px;
-  overflow: hidden;
-  background: white;
+/* QUALIDADE */
+.qualidade__h1 {
+  margin: 50px auto;
 }
 
-.qualidade__img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.button__orange {
-  display: flex;
-  align-items: center;
-  background: var(--orange);
-  height: 36px;
-  color: white;
-  font-size: 20px;
-  border-radius: 20px 20px 0 20px;
-  padding: 0 20px;
-  transition: .2s;
+/* options__cards */
+.options__cards {
   cursor: pointer;
+  transition: .2s;
 }
 
-.qualidade__text {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px; 
-  background: white;
+.options__cards:hover {
+  opacity: 0.8;
+  transition: .2s;
 }
-
-.qualidade__text::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 100%;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6), white);
-  border-radius: 30px 0 0 0;
-  height: 30px;
-  width: 100%;
-}
-
-.qualidade__title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--black);
-  text-align: center;
-}
-
-.qualidade__btns {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.qualidade__adicionar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.qualidade__btns button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F3F3F3;
-  color: var(--black);
-  font-size: 20px;
-  font-weight: 800;
-  border-radius: 50%;
-  height: 34px;
-  width: 34px;
-  padding-bottom: 6px;
-}
-
-.qualidade__preco {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--black);
-}
-
 
 /* mais */
 .mais {
@@ -177,6 +103,7 @@ h3 {
   background: #AE2431;
   font-size: 30px;
   padding: 120px 0;
+  margin-top: 100px;
   color: white;
 }
 
@@ -218,6 +145,18 @@ h3 {
   box-shadow: 3px 3px 30px rgba(0,0,0, .2);
 }
 
+@media screen and (max-width: 1000px) {
+  .options {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .mais__container {
+    gap: 20px;
+  }
+
+}
+
 
 </style>
 
@@ -225,31 +164,29 @@ h3 {
 
 <body>
 
+  <iframe class="iframe__header" src="../components/header.html"></iframe>
 
-  <iframe style="height: 162px; overflow: hidden;" src="../components/header.html"></iframe>
 
-  <section class="menu">
-    <a href="#">Prontos para comer</a>
-    <a href="#">Bovinos</a>
-    <a href="#">AVES</a>
-    <a href="#">PESCADOS</a>
-    <a href="#">SUÍNOS</a>
-    <a href="#">LINGUIÇAS</a>
-    <a href="#">CHURRASCO</a>
-    <a href="#">CORTES ESPECIAIS</a>
-    <a href="#">FRUTAS E VEGETAIS</a>
-    <a href="#">100% VEGETAL</a>
-    <a href="#">SNACKS</a>
-    <a href="#">MERCEARIA</a>
-    <a href="#">PADARIA</a>
-  </section>
   
-
   <main>
 
-    <div class="max__width">
-      <h1>qualidade e sabor para suas refeições, todos <span>os dias</span></h1>
-    </div>
+    <div class="home__titulo"></div>
+  
+    <section class="menu">
+      <a href="#">Prontos para comer</a>
+      <a href="#">Bovinos</a>
+      <a href="#">AVES</a>
+      <a href="#">PESCADOS</a>
+      <a href="#">SUÍNOS</a>
+      <a href="#">LINGUIÇAS</a>
+      <a href="#">CHURRASCO</a>
+      <a href="#">CORTES ESPECIAIS</a>
+      <a href="#">FRUTAS E VEGETAIS</a>
+      <a href="#">100% VEGETAL</a>
+      <a href="#">SNACKS</a>
+      <a href="#">MERCEARIA</a>
+      <a href="#">PADARIA</a>
+    </section>
 
     <!-- OPTIONS -->
     <section class="options">
@@ -262,42 +199,15 @@ h3 {
 
     
     <!-- QUALIDADE -->
+
+    <div class="max__width qualidade__h1">
+      <h1>Principais ofertas <span>do dia</span></h1>
+    </div>
+
     <section class="max__width">
       <div class="qualidade" id="card-container--qualidade">
 
         <div class="qualidade__card" id="card-qualidade">
-          <img class="qualidade__img" src="../assets/meet.webp" alt="">
-        
-          <div class="qualidade__text">
-            <p class="qualidade__title">carne de panela em cubos swift 500g</p>
-            <p>preço</p>
-            <p class="qualidade__preco">r$ 20,90</p>
-            <div class="qualidade__adicionar row">
-              <div class="qualidade__btns">
-        
-                <button>-</button>
-                <p>1</p>
-                <button>+</button>
-              </div>
-              <button class="button__orange">adicionar</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-
-    <div class="max__width">
-      <h1>confira as melhores <span>receitas</span></h1>
-    </div>
-
-    <!-- RECEITAS -->
-    <section class="max__width">
-      <div class="qualidade" id="card-container--receitas">
-
-        <div class="qualidade__card" id="card-receitas">
           <img class="qualidade__img" src="../assets/meet.webp" alt="">
         
           <div class="qualidade__text">
@@ -396,28 +306,28 @@ h3 {
 
   </main>
   
-  <iframe style="height: 540px" src="../components/footer.html"></iframe>
+  <iframe class="footer__iframe" src="../components/footer.html"></iframe>
+
+  <div class="paginas">
+    <a class="paginas__button" href="../pages/index.html">Home</a>
+    <a class="paginas__button" href="../pages/produtos.html">Produtos</a>
+    <a class="paginas__button" href="../pages/receitas.html">Receitas</a>
+  </div>
 
 </body>
 
 
 <script>
 
-const componentes = ['qualidade', 'receitas']
   
-componentes.forEach(obj => {
-  const card = document.getElementById(`card-${obj}`)
-  const container = document.getElementById(`card-container--${obj}`)
-  
-  console.log('card', card);
-  console.log('container', container);
-    
+const card = document.getElementById(`card-qualidade`)
+const container = document.getElementById(`card-container--qualidade`)
 
-  for (let i = 0; i < 4; i++) {
-    const clone = card.cloneNode(true);
-    container.appendChild(clone);
-  }
+for (let i = 0; i < 3; i++) {
+  const clone = card.cloneNode(true);
+  container.appendChild(clone);
+}
 
-});
+
 </script>
 </html>

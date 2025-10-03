@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swift - Receitas</title>
+
+  
+  <link rel="stylesheet" href="../global.css">
+
+<style>
+.filtro__container--receitas {
+  max-width: initial;
+  width: max-content;
+  margin: auto;
+}
+
+.filtro__opcoes {
+  gap: 4px 10px;
+}
+
+.produtos__filtros {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.filtro__receitas {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+  margin-top: 200px;
+}
+
+.filtro__col--1 {
+  width: max-content;
+  text-wrap: nowrap;
+  white-space: nowrap;
+  letter-spacing: 3px;
+}
+
+.filtro__col--1 h1 {
+  color: var(--black);
+}
+
+.filtro__col--1 p {
+  color: var(--orange);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.button__orange {
+  padding: 0 44px !important;
+}
+
+/* cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.card {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 30px;
+  background: white;
+  height: max-content;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.card:hover {
+  box-shadow: 3px 3px 30px rgba(0,0,0, 0.25);
+  transition: .2s;
+}
+
+.card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card__container {
+  position: relative;
+  padding: 20px;
+}
+
+.card__container::before {
+  content: '';
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+  background-image: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255, 0.9), white);
+  left: 0;
+  bottom: 100%;
+  z-index: 1;
+}
+
+.card__description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  height: 115px;
+}
+
+
+.card__title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--black);
+  text-align: center;
+}
+
+.card__porcao {
+  margin: auto;
+  font-size: 16px;
+}
+
+.card__dificuldade {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card__sobre {
+  display: flex;
+  justify-content: space-between;
+}
+
+.oragen {
+  font-weight: 600;
+  color: var(--orange);
+}
+
+/* chef */
+.chef {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  border-radius: 60px;
+  background: white;
+  padding: 40px;
+  margin-bottom: 100px;
+}
+
+.chef__col--1 {
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.chef__col--2 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-areas:
+    'mateus1 mateus2'
+    'mateus1 mateus3';
+  gap: 30px;
+}
+
+.chef__h1 {
+  color: var(--black);
+  letter-spacing: 6px;
+  font-size: 36px;
+}
+
+.chef__sub {
+  font-size: 20px;
+  color: var(--orange);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.chef__text {
+  line-height: 24px;
+  color: var(--black);
+}
+
+.chef__img {
+  object-fit: cover; 
+}
+
+.chef__img {
+  width: 100%;
+  height: 100%;
+}
+
+.chef__img--1 {
+  grid-area: mateus1;
+}
+
+.chef__img--2 {
+  grid-area: mateus2;
+}
+
+.chef__img--3 {
+  grid-area: mateus3;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .filtro__receitas {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .produtos__filtros {
+    flex-direction: column;
+  }
+
+  .chef {
+    display: flex; 
+    flex-direction: column;
+  }
+
+  .filtro__container--receitas {
+    max-width: initial;
+    width: initial;
+  }
+
+}
+
+</style>
+
+</head>
+<body>
+  
+  <iframe class="iframe__header" src="../components/header.html"></iframe>
+  
+  <section class="max__width">
+    <div class="filtro__receitas">
+      <div class="filtro__col--1">
+        <h1>encontre sua receita</h1>
+        <p>ideias deleciosas para fazer <br> na sua casa</p>
+      </div>
+      
+      <div class="filtro__container filtro__container--receitas">
+        <div class="produtos__filtros" id="produtos__filtros"></div>
+
+        <div class="filtro__buttons">
+          <button class="button__orange">FILTRAR</button>
+          <button class="button__orange button__orange--border">LIMPAR</button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="max__width">
+    <div class="cards" id="cardContainer"></div>
+
+  </section>
+
+  <section class="max__width">
+    <div class="chef">
+      <div class="chef__col--1">
+        <div>
+          <h1 class="chef__h1">Sua vez de ser Chef</h1>
+          <p class="chef__sub">Aprenda receitas com o chef Fabio Leanza</p>
+        </div>
+        <p class="chef__text">
+          Aqui na Swift você vai encontrar as melhores receitas para todas as ocasiões e ainda arrancar elogios de todos os seus convidados. Conheça todas as receitas disponíveis no site e saboreie no conforto da sua casa.
+        </p>
+      </div>
+
+      <div class="chef__col--2">
+        <img class="chef__img chef__img--1" src="../assets/swift_chef.png" alt="">
+        <img class="chef__img chef__img--2" src="../assets/swift_receitas.webp" alt="">
+        <img class="chef__img chef__img--3" src="../assets/swift_rnk_institucional-congelado.webp" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  
+  <iframe class="footer__iframe" src="../components/footer.html"></iframe>
+  <div class="paginas">
+    <a class="paginas__button" href="../pages/index.html">Home</a>
+    <a class="paginas__button" href="../pages/produtos.html">Produtos</a>
+    <a class="paginas__button" href="../pages/receitas.html">Receitas</a>
+  </div>
+</body>
+
+<script type="module">
+import { opcoesDeFiltroProdutosReceitas } from '../consts/opcoesDeFiltro.js';
+
+/* Cards */
+const cardContainer = document.getElementById('cardContainer') 
+// const card = document.getElementById('card') 
+
+const cardsInfos = [
+  {
+    title: 'SORBET DE ABACAXI COM LIMÃO',
+    imgPath: 'swift-brownie-com-creme-de-leite-em-po-e-pe-de-moleque.webp',
+  },
+  {
+    title: 'Receita de brownie com calda de caramelo',
+    imgPath: 'swift-acai_sobremesa.webp',
+  },
+  {
+    title: 'AÇAÍ COM CREME DE LEITE EM PÓ E FAROFA DE COOKIE',
+    imgPath: '/swift-brownie-com-geleia-frutas-vermelhas.webp',
+  },
+  {
+    title: 'BROWNIE COM CREME DE LEITE EM PÓ E PÉ DE MOLEQUE',
+    imgPath: 'swift-sorbet-de-abacaxi-com-limao.webp',
+  },
+  {
+    title: 'Receita de brownie com calda de caramelo',
+    imgPath: 'swift-acai_sobremesa.webp',
+  },
+  {
+    title: 'BROWNIE COM CREME DE LEITE EM PÓ E PÉ DE MOLEQUE',
+    imgPath: 'swift-sorbet-de-abacaxi-com-limao.webp',
+  },
+  {
+    title: 'SORBET DE ABACAXI COM LIMÃO',
+    imgPath: 'swift-brownie-com-creme-de-leite-em-po-e-pe-de-moleque.webp',
+  },
+  {
+    title: 'AÇAÍ COM CREME DE LEITE EM PÓ E FAROFA DE COOKIE',
+    imgPath: '/swift-brownie-com-geleia-frutas-vermelhas.webp',
+  },
+]
+
+cardsInfos.forEach(obj => {
+  
+  const card = `
+    <div class="card" id="card">
+      <img class="card__img" src="../assets/receitas/${obj.imgPath}" alt="">
+
+      <div class="card__container">
+        <div class="card__description">
+          <p class="card__title">${obj.title}</p>
+          <p class="card__porcao oragen">4 porções</p>
+        </div>
+        <hr  class="hr--dashed">
+        <div class="card__sobre">
+          <div class="card__dificuldade">
+            <p>dificuldade</p>
+            <p class="oragen">Iniciante</p>
+          </div>
+          <div>
+            <p>tempo</p>
+            <p class="oragen">15 min</p>
+          </div>
+        </div>
+      </div>
+  `
+  
+  cardContainer.innerHTML += card
+})
+
+
+
+
+
+
+/* filtros */
+const htmlFiltros = document.getElementById('produtos__filtros')
+
+opcoesDeFiltroProdutosReceitas.forEach(obj => {
+  const opcoesFiltros = document.createElement('div')
+
+  const htmlFiltrosOpcoes = `
+    <p class="filtro__t"><b>${obj.titulo}</b></p>
+    <div class="filtro__opcoes">
+      ${obj.opcoes.map(e => `<p class="filtro__o">${e}</p>`)}
+    </div>
+    `
+  
+  opcoesFiltros.innerHTML = htmlFiltrosOpcoes.replace(/,/g, '')
+  htmlFiltros.append(opcoesFiltros)
+})
+
+</script>
+
+</html>

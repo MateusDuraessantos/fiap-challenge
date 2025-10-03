@@ -95,7 +95,15 @@ body {
   gap: 10px;
 }
 
+@media screen and (max-width: 1000px) {
+  .search {
+    padding: 16px;
+  }
 
+  .search__bem {
+    display: none;
+  }
+}
 
 </style>
 
@@ -112,7 +120,7 @@ body {
       <img class="search__logo" src="../assets/logo_swift.svg" alt="">
 
       <div class="search__input">
-        <input class="search__text" type="text" placeholder="Procure por proteínas, cortes, etc..." />
+        <input class="search__text" type="text" placeholder="Procure por proteínas, cortes, etc..." name="search">
         <img class="search__icon--search" height="26" width="26" src="../assets/icons/search.svg" alt="">
       </div>
       
